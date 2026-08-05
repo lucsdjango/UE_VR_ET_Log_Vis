@@ -42,7 +42,6 @@ Developed and tested with Unreal Engine 5.7.
 | `ETVisualization` / `Fixation` | Blueprint actors | Replay visualization of recorded gaze and fixation data |
 | `FixationsVisualizationWidgetBlueprint` | Editor Utility Widget | UI for fixation computation and visualization, drives the Python scripts |
 | `Content/Python/` | Python | `VrEtVisualizer.py` (editor-side processing/visualization), `IDT_alg_VR_centred.py` (I-DT fixation algorithm), `InstallDependencies.py` (pip bootstrap) |
-| `VRSpectator` | Blueprint pawn | Desktop spectator camera for VR sessions |
 
 ## Notes
 
