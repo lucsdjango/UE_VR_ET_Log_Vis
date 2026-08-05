@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "VR Eye-Tracking Logger",
+	"Description": "Logs eye-tracking and head-tracking data from VR headsets to TSV files, computes fixations with a VR-centred I-DT algorithm (Llanes-Jurado et al. 2020), and visualizes gaze and fixation replays in the editor. Includes a spectator camera pawn for observing VR sessions.",
+	"Category": "Virtual Reality",
+	"CreatedBy": "lucsdjango",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.7.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "VRETLogger",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"Module.VRETLogger.cpp.obj",
+		"TSVLogger.cpp.obj",
+		"VRETLoggerModule.cpp.obj",
+		"VRLogger.cpp.obj"
+	]
+}
