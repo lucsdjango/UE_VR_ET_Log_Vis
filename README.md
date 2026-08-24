@@ -1,6 +1,6 @@
-# VRETLogger — VR Eye-Tracking Logger & Visualizer
+# VR Eye-Tracking Logger & Visualizer
 
-Unreal Engine plugin for logging eye-tracking and head-tracking data from a VR headset to TSV files, computing fixations with a VR-centred I-DT algorithm, and replaying/visualizing the recorded gaze data in the editor. Also includes a spectator camera pawn for observing VR sessions from the desktop.
+Unreal Engine plugin for logging eye-tracking and head-tracking data from a VR headset to TSV files, computing fixations with a VR-centred I-DT algorithm [Llanes-Jurado et al. 2020](https://www.mdpi.com/1424-8220/20/17/4956), and replaying/visualizing the recorded gaze data in the editor. Also includes a spectator camera pawn for observing VR sessions from the desktop.
 
 Developed and tested with Unreal Engine 5.7.
 
@@ -30,9 +30,6 @@ Developed and tested with Unreal Engine 5.7.
 - The processed file is written to `Content/VRETLogs/withCalculatedFixations/`.
 - Click **Visualize Fixations**: an `ETVisualization` actor appears in the level with blue spheres (fixations) as children. Scrub the slider to replay head movement, gaze intersection point, and fixations; pressing Play replays in real time.
 
-## Spectator camera
-
-The `VRSpectator` pawn (under `VRSpectator/` in the plugin content) renders a separate desktop view while a user is in the headset. Place it in the level; its Enhanced Input mapping context (`IMC_VRSpectator`) lets you fly the camera, adjust FOV, and toggle modes from mouse/keyboard.
 
 ## Components
 
@@ -45,7 +42,6 @@ The `VRSpectator` pawn (under `VRSpectator/` in the plugin content) renders a se
 | `ETVisualization` / `Fixation` | Blueprint actors | Replay visualization of recorded gaze and fixation data |
 | `FixationsVisualizationWidgetBlueprint` | Editor Utility Widget | UI for fixation computation and visualization, drives the Python scripts |
 | `Content/Python/` | Python | `VrEtVisualizer.py` (editor-side processing/visualization), `IDT_alg_VR_centred.py` (I-DT fixation algorithm), `InstallDependencies.py` (pip bootstrap) |
-| `VRSpectator` | Blueprint pawn | Desktop spectator camera for VR sessions |
 
 ## Notes
 
