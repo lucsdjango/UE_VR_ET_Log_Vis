@@ -19,4 +19,8 @@
 10. Conf
       - Confidence value, 0-1. Seems to always return values close to 1, tested with Quest Pro and Varjo VR-3.
 11. FixPoint
-      - Fixation point (point where L-R gaze vectors converge), not working (returning zero values) with either Quest Pro or Varjo VR-3.
+      - Fixation point not working (returning zero values) with either Quest Pro or Varjo VR-3.
+12. LBlink
+   - T if left eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
+13. RBlink
+   - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3. 
