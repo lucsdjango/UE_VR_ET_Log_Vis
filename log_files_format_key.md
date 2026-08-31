@@ -21,6 +21,6 @@
 11. FixPoint
       - Fixation point not working (returning zero values) with either Quest Pro or Varjo VR-3.
 12. LBlink
-   - T if left eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
+      - T if left eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
 13. RBlink
-   - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3. 
+      - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3. 
