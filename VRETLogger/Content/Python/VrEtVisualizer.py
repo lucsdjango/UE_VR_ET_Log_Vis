@@ -45,6 +45,7 @@ def readETData(fileName, time_th, disp_th, freq_th, useFocal):
     deleteExistingVisualizations()
     
     df_et = pd.read_csv(unreal.Paths.project_content_dir() + "VRETLogs/" + fileName, sep="\t",index_col=False )
+    df_et = df_et.iloc[:,:-1] #drop empty column
     
     df_et = df_et[(df_et["Valid"] == "T")]
     
@@ -82,7 +83,7 @@ def readETData(fileName, time_th, disp_th, freq_th, useFocal):
     
     outDir = unreal.Paths.project_content_dir() + "VRETLogs/withCalculatedFixations/"
     pathlib.Path(outDir).mkdir(parents=True, exist_ok=True)
-     
+    
     df_et_w_fixations.to_csv(outDir+new_file_name, sep="\t") 
     
     return new_file_name
