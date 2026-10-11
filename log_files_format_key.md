@@ -23,4 +23,20 @@
 12. LBlink
       - T if left eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
 13. RBlink
-      - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3. 
+      - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
+14. LPupil
+      - Left pupil diameter. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+15. RPupil
+      - Right pupil diameter. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+16. LOrigin
+      - Left eye position in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+17. LDir
+      - Left gaze vector in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+18. ROrigin
+      - Right eye position in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+19. RDir
+      - Right gaze vector in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+20. HitPos
+      - Position of closest intersection of combined gaze vector with object (with collision enabled) in the scene, in world space [X, Y, Z].
+21. HitName
+      - Name of closest object (with collision enabled) in the scene intersecting with combined gaze vector.
