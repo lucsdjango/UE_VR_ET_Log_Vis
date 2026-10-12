@@ -40,3 +40,9 @@
       - Position of closest intersection of combined gaze vector with object (with collision enabled) in the scene, in world space [X, Y, Z].
 21. HitName
       - Name of closest object (with collision enabled) in the scene intersecting with combined gaze vector.
+22. head_pose_x
+			- X component of HeadPos column (separated for fixation detection)
+23. head_pose_y
+			- Y component of HeadPos column (separated for fixation detection)
+23. head_pose_z
+			- Z component of HeadPos column (separated for fixation detection)
