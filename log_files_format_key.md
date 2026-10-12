@@ -60,3 +60,12 @@
 	  - Y component of HitPos column (separated for fixation detection)
 31. et_z
 	  - Z component of HitPos column (separated for fixation detection)
+32. class_disp
+      - 1 = fixation, 0 = saccade. Output of [fixation detection algorithm](https://github.com/acw-upv/VR-centred_I-DT_algorithm)
+33. diff
+      - Difference in class_disp from previous frame. Used internally to calculate fixation indices.
+34. newFixation
+      - Absolute value of diff. Used internally to calculate fixation indices.
+35. fixationIdx
+      - Fixation indices. Even intergers for fixations, odd integers for saccades.
+      
