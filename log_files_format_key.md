@@ -41,8 +41,22 @@
 21. HitName
       - Name of closest object (with collision enabled) in the scene intersecting with combined gaze vector.
 22. head_pose_x
-			- X component of HeadPos column (separated for fixation detection)
+	  - X component of HeadPos column (separated for fixation detection)
 23. head_pose_y
-			- Y component of HeadPos column (separated for fixation detection)
-23. head_pose_z
-			- Z component of HeadPos column (separated for fixation detection)
+	  - Y component of HeadPos column (separated for fixation detection)
+24. head_pose_z
+      - Z component of HeadPos column (separated for fixation detection)
+25. head_rot_x
+	  - X component of HeadRot column (separated for fixation detection)
+26. head_rot_y
+	  - Y component of HeadRot column (separated for fixation detection)
+27. head_rot_z
+	  - Z component of HeadRot column (separated for fixation detection)
+28. head_rot_w
+	  - W component of HeadRot column (separated for fixation detection)
+29. et_x
+	  - X component of HitPos column (separated for fixation detection)
+30. et_y
+	  - Y component of HitPos column (separated for fixation detection)
+31. et_z
+	  - Z component of HitPos column (separated for fixation detection)
