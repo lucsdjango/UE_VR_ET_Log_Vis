@@ -1,6 +1,6 @@
 # VR Eye-Tracking Logger & Visualizer
 
-Unreal Engine plugin for logging eye-tracking and head-tracking data from a VR headset to TSV files, computing fixations with a VR-centred I-DT algorithm [Llanes-Jurado et al. 2020](https://www.mdpi.com/1424-8220/20/17/4956), and replaying/visualizing the recorded gaze data in the editor. Also includes a spectator camera pawn for observing VR sessions from the desktop.
+Unreal Engine plugin for logging eye-tracking and head-tracking data from a VR headset to TSV files, computing fixations with a VR-centred I-DT algorithm [Llanes-Jurado et al. 2020](https://www.mdpi.com/1424-8220/20/17/4956), and replaying/visualizing the recorded gaze data in the editor. 
 
 Developed and tested with Unreal Engine 5.7.
 
