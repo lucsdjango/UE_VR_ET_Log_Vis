@@ -27,7 +27,7 @@ Developed and tested with Unreal Engine 5.7.
 - Right-click `FixationsVisualizationWidgetBlueprint` (in the plugin content folder) and select **Run Editor Utility Widget**.
 - On first use, click **Install Requirements** to install the required Python packages (numpy, numba, pandas) into the editor's Python environment.
 - Check that the latest log file name appears in the *Input Log File* field, then click **Calculate Fixations** (parameters follow [Llanes-Jurado et al. 2020](https://www.mdpi.com/1424-8220/20/17/4956)).
-- The processed file is written to `Content/VRETLogs/withCalculatedFixations/`. [Column keys:](../log_files_format_key.md)
+- The processed file is written to `Content/VRETLogs/withCalculatedFixations/`. [Column keys](./log_files_format_key.md)
 - Click **Visualize Fixations**: an `ETVisualization` actor appears in the level with blue spheres (fixations) as children. Scrub the slider to replay head movement, gaze intersection point, and fixations; pressing Play replays in real time.
 
 
