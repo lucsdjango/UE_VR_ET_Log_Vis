@@ -38,7 +38,12 @@ public:
 	void CalculateAndUpdateHits(FVector pos, FVector dir, FString filterTag);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VR Logger")
 	ATSVLogger* Logger;
+	// Override per-eye, blink and pupil values with data from a headset specific plugin (e.g. VRETLoggerMetaXR) if one is enabled.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VR Logger")
+	bool bUseEyeDataProvider = true;
 	TArray<FString> Labels;
-	
+
+private:
+	class IVRETEyeDataProvider* GetEyeDataProvider() const;
 
 };

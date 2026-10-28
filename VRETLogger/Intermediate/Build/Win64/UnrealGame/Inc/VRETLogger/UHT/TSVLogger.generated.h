@@ -17,7 +17,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class ATSVLogger ***************************************************************
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execAsyncLog); \
 	DECLARE_FUNCTION(execStartLogging); \
 	DECLARE_FUNCTION(execInitOrReset); \
@@ -33,7 +33,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct Z_Construct_UClass_ATSVLogger_Statics;
 VRETLOGGER_API UClass* Z_Construct_UClass_ATSVLogger_NoRegister();
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_INCLASS_NO_PURE_DECLS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATSVLogger(); \
 	friend struct ::Z_Construct_UClass_ATSVLogger_Statics; \
@@ -44,7 +44,7 @@ public: \
 	DECLARE_SERIALIZER(ATSVLogger)
 
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_ENHANCED_CONSTRUCTORS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	ATSVLogger(ATSVLogger&&) = delete; \
 	ATSVLogger(const ATSVLogger&) = delete; \
@@ -54,13 +54,13 @@ public: \
 	NO_API virtual ~ATSVLogger();
 
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_9_PROLOG
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_GENERATED_BODY \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_9_PROLOG
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_INCLASS_NO_PURE_DECLS \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_ENHANCED_CONSTRUCTORS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_INCLASS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h_12_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -70,6 +70,6 @@ class ATSVLogger;
 // ********** End Class ATSVLogger *****************************************************************
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h
+#define CURRENT_FILE_ID FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

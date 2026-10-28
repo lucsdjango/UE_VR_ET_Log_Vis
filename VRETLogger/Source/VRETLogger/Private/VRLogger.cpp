@@ -8,6 +8,8 @@
 #include "Engine/Engine.h"
 #include "Engine/HitResult.h"
 #include "Engine/World.h"
+#include "Features/IModularFeatures.h"
+#include "VRETEyeDataProvider.h"
 
 // Sets default values
 AVRLogger::AVRLogger()
@@ -50,6 +52,22 @@ void AVRLogger::StartLogging(FString id)
 	}
 
 	Logger->StartLogging(id, false);
+
+	if (IVRETEyeDataProvider* Provider = GetEyeDataProvider())
+	{
+		UE_LOG(LogTemp, Log, TEXT("VRLogger: using %s for per-eye data."), *Provider->GetProviderName());
+		Provider->StartTracking();
+	}
+}
+
+IVRETEyeDataProvider* AVRLogger::GetEyeDataProvider() const
+{
+	const FName FeatureName = IVRETEyeDataProvider::GetModularFeatureName();
+	if (!bUseEyeDataProvider || !IModularFeatures::Get().IsModularFeatureAvailable(FeatureName))
+	{
+		return nullptr;
+	}
+	return &IModularFeatures::Get().GetModularFeature<IVRETEyeDataProvider>(FeatureName);
 }
 
 
@@ -71,6 +89,33 @@ void AVRLogger::UpdateETData(float deltaTime, FVector headPos, FQuat headRot, FV
 	}
 	else
 	{
+		// Unreal's OpenXR eye tracker only provides combined gaze, so take the rest from a headset specific provider if available.
+		FVRETEyeData EyeData;
+		IVRETEyeDataProvider* Provider = GetEyeDataProvider();
+		if (Provider && Provider->GetEyeData(EyeData))
+		{
+			if (EyeData.bLeftEyeValid)
+			{
+				lOrigin = EyeData.LeftOrigin;
+				lDir = EyeData.LeftDirection;
+			}
+			if (EyeData.bRightEyeValid)
+			{
+				rOrigin = EyeData.RightOrigin;
+				rDir = EyeData.RightDirection;
+			}
+			if (EyeData.bBlinkValid)
+			{
+				lBlink = EyeData.bLeftBlink;
+				rBlink = EyeData.bRightBlink;
+			}
+			if (EyeData.bPupilValid)
+			{
+				lPupil = EyeData.LeftPupilDiameter;
+				rPupil = EyeData.RightPupilDiameter;
+			}
+		}
+
 		Logger->UpdateEntry("Valid", "T");
 		Logger->UpdateVector("HeadPos", headPos);
 		Logger->UpdateQuat("HeadRot", headRot);
@@ -105,7 +150,7 @@ void AVRLogger::CalculateAndUpdateHits(FVector pos, FVector dir, FString filterT
 	FString HitsString = "";
 
 
-	GetWorld()->LineTraceMultiByChannel(Hits, pos, dir * 9999999.9f, ECollisionChannel::ECC_Visibility, TraceParams);
+	GetWorld()->LineTraceMultiByChannel(Hits, pos, pos + dir * 9999999.9f, ECollisionChannel::ECC_Visibility, TraceParams);
 	FVector FirstHitPos = FVector::Zero();
 
 	// Collision responses -> visibility should be set to overlap not to block objects behind. TODO: Does not work with movable objects. 

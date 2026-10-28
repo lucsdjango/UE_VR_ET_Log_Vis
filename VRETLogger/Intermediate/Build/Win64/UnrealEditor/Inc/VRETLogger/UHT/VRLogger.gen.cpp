@@ -431,10 +431,18 @@ struct Z_Construct_UClass_AVRLogger_Statics
 		{ "Category", "VR Logger" },
 		{ "ModuleRelativePath", "Public/VRLogger.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bUseEyeDataProvider_MetaData[] = {
+		{ "Category", "VR Logger" },
+		{ "Comment", "// Override per-eye, blink and pupil values with data from a headset specific plugin (e.g. VRETLoggerMetaXR) if one is enabled.\n" },
+		{ "ModuleRelativePath", "Public/VRLogger.h" },
+		{ "ToolTip", "Override per-eye, blink and pupil values with data from a headset specific plugin (e.g. VRETLoggerMetaXR) if one is enabled." },
+	};
 #endif // WITH_METADATA
 
 // ********** Begin Class AVRLogger constinit property declarations ********************************
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Logger;
+	static void NewProp_bUseEyeDataProvider_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bUseEyeDataProvider;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 // ********** End Class AVRLogger constinit property declarations **********************************
 	static constexpr UE::CodeGen::FClassNativeFunction Funcs[] = {
@@ -461,8 +469,14 @@ struct Z_Construct_UClass_AVRLogger_Statics
 
 // ********** Begin Class AVRLogger Property Definitions *******************************************
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AVRLogger_Statics::NewProp_Logger = { "Logger", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AVRLogger, Logger), Z_Construct_UClass_ATSVLogger_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Logger_MetaData), NewProp_Logger_MetaData) };
+void Z_Construct_UClass_AVRLogger_Statics::NewProp_bUseEyeDataProvider_SetBit(void* Obj)
+{
+	((AVRLogger*)Obj)->bUseEyeDataProvider = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AVRLogger_Statics::NewProp_bUseEyeDataProvider = { "bUseEyeDataProvider", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AVRLogger), &Z_Construct_UClass_AVRLogger_Statics::NewProp_bUseEyeDataProvider_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bUseEyeDataProvider_MetaData), NewProp_bUseEyeDataProvider_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AVRLogger_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AVRLogger_Statics::NewProp_Logger,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AVRLogger_Statics::NewProp_bUseEyeDataProvider,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AVRLogger_Statics::PropPointers) < 2048);
 // ********** End Class AVRLogger Property Definitions *********************************************
@@ -504,15 +518,15 @@ AVRLogger::~AVRLogger() {}
 // ********** End Class AVRLogger ******************************************************************
 
 // ********** Begin Registration *******************************************************************
-struct Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics
+struct Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AVRLogger, AVRLogger::StaticClass, TEXT("AVRLogger"), &Z_Registration_Info_UClass_AVRLogger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AVRLogger), 319785000U) },
+		{ Z_Construct_UClass_AVRLogger, AVRLogger::StaticClass, TEXT("AVRLogger"), &Z_Registration_Info_UClass_AVRLogger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AVRLogger), 3727213104U) },
 	};
-}; // Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_3830107434{
+}; // Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics 
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_3635488474{
 	TEXT("/Script/VRETLogger"),
-	Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h__Script_VRETLogger_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0,
 };

@@ -677,15 +677,15 @@ ATSVLogger::~ATSVLogger() {}
 // ********** End Class ATSVLogger *****************************************************************
 
 // ********** Begin Registration *******************************************************************
-struct Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics
+struct Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_ATSVLogger, ATSVLogger::StaticClass, TEXT("ATSVLogger"), &Z_Registration_Info_UClass_ATSVLogger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATSVLogger), 3448988628U) },
 	};
-}; // Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics 
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_2779851342{
+}; // Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics 
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_2779851342{
 	TEXT("/Script/VRETLogger"),
-	Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_TSVLogger_h__Script_VRETLogger_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0,
 };
