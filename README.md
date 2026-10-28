@@ -12,6 +12,19 @@ Developed and tested with Unreal Engine 5.7.
 4. Enable an OpenXR eye-tracking source for your headset (e.g. *OpenXR Eye Tracker* plugin).
 5. To see the plugin's blueprints in the Content Browser, enable **Settings > Show Plugin Content**. They are under `Plugins/VRETLogger Content/`.
 
+### Meta Quest Pro: per-eye gaze and blinks (optional)
+
+Unreal's OpenXR eye tracker only provides the combined gaze, so the per-eye and blink columns stay empty (see [Eye-tracking data availability](#eye-tracking-data-availability)). For Quest Pro, the optional `VRETLoggerMetaXR` companion plugin fills them in from the Meta XR plugin:
+
+1. Install the [Meta XR plugin](https://developers.meta.com/horizon/downloads/package/unreal-engine-5-integration/) for your engine version.
+2. Copy the `VRETLoggerMetaXR` folder next to `VRETLogger` in your project's `Plugins/` directory and enable *VR Eye-Tracking Logger - Meta XR* (this also enables *Meta XR*). It is a source plugin, so the project needs a C++ toolchain to build it.
+3. In **Project Settings > Plugins > Meta XR**, enable *Eye Tracking Enabled* and *Face Tracking Enabled*.
+4. When running over Quest Link, enable eye tracking and natural facial expressions in the Meta Quest Link app (**Settings > Beta**), and allow them on the headset.
+
+No blueprint changes are needed: `VRLogger` picks the data up automatically (disable with its *Use Eye Data Provider* property). Blink sensitivity can be tuned with the console variable `vret.MetaXR.BlinkThreshold` (default 0.5).
+
+Only enable this plugin in projects that target Quest, since it enables the Meta XR plugin.
+
 ## Recording
 
 - Add a **TSVLogger** actor to your level.
@@ -41,11 +54,25 @@ Developed and tested with Unreal Engine 5.7.
 | `LogTest` | Blueprint actor | Example of logging custom variables with TSVLogger |
 | `ETVisualization` / `Fixation` | Blueprint actors | Replay visualization of recorded gaze and fixation data |
 | `FixationsVisualizationWidgetBlueprint` | Editor Utility Widget | UI for fixation computation and visualization, drives the Python scripts |
+| `VRETLoggerMetaXR` | C++ plugin (optional) | Provides per-eye gaze and blinks from the Meta XR plugin to `VRLogger` |
 | `Content/Python/` | Python | `VrEtVisualizer.py` (editor-side processing/visualization), `IDT_alg_VR_centred.py` (I-DT fixation algorithm), `InstallDependencies.py` (pip bootstrap) |
 
 ## Notes
 
 - Eye-tracking data is read through Unreal's generic `EyeTracker` interface, so any OpenXR runtime that implements it should work (tested with Varjo and Meta Quest Pro).
+
+### Eye-tracking data availability
+
+Unreal's OpenXR eye tracker is built on `XR_EXT_eye_gaze_interaction`, which only provides a single combined gaze pose. *Get Gaze Data* therefore never fills in the fixation point, blinks or pupil size, and *Get Stereo Gaze Data* is not implemented (always returns false). This is an engine limitation and applies to every headset.
+
+| Columns | OpenXR (any headset) | Quest Pro + `VRETLoggerMetaXR` |
+|---|---|---|
+| GazeOrigin, GazeDir | yes | yes |
+| Conf | 0/1 tracking flag only | 0/1 tracking flag only |
+| LOrigin, LDir, ROrigin, RDir | no (0) | yes |
+| LBlink, RBlink | no (F) | yes (from eyelid closure) |
+| LPupil, RPupil | no (0) | no (not exposed by Meta) |
+| FixPoint | no (0) | no (0), use HitPos |
 - Set the VRLogger's debug sphere visibility (*Rendering > Visible*) to show/hide the gaze intersection indicator.
 - Collision responses on the *Visibility* channel should be set to *Overlap* rather than *Block* if you want gaze traces to record objects behind the first hit.
 

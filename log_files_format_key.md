@@ -17,32 +17,32 @@
 9. GazeDir
    - Tracked gaze vector in world space [X, Y, Z], L-R combined.
 10. Conf
-      - Confidence value, 0-1. Seems to always return values close to 1, tested with Quest Pro and Varjo VR-3.
+      - Tracking flag rather than a real confidence: Unreal's OpenXR eye tracker sets 1 when the gaze pose is fully tracked and 0 when it is only estimated.
 11. FixPoint
-      - Fixation point not working (returning zero values) with either Quest Pro or Varjo VR-3.
+      - Fixation (vergence) point. Not provided by Unreal's OpenXR eye tracker (always 0). Use HitPos instead.
 12. LBlink
-      - T if left eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
+      - T if left eye blink detected, otherwise F. Not provided by Unreal's OpenXR eye tracker (always F). Quest Pro: provided by the VRETLoggerMetaXR plugin (face tracking EyesClosedL weight above `vret.MetaXR.BlinkThreshold`, default 0.5).
 13. RBlink
-      - T if right eye blink detected, otherwise F. Not working (always returning F) with either Quest Pro or Varjo VR-3.
+      - T if right eye blink detected, otherwise F. Same source as LBlink.
 14. LPupil
-      - Left pupil diameter. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Left pupil diameter. Not provided by Unreal's OpenXR eye tracker (always 0). Not available on Quest Pro (Meta does not expose pupil size).
 15. RPupil
-      - Right pupil diameter. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Right pupil diameter. Same as LPupil.
 16. LOrigin
-      - Left eye position in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Left eye position in world space [X, Y, Z]. Not provided by Unreal's OpenXR eye tracker (always 0). Quest Pro: provided by the VRETLoggerMetaXR plugin.
 17. LDir
-      - Left gaze vector in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Left gaze vector in world space [X, Y, Z]. Same source as LOrigin.
 18. ROrigin
-      - Right eye position in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Right eye position in world space [X, Y, Z]. Same source as LOrigin.
 19. RDir
-      - Right gaze vector in world space [X, Y, Z]. Not working (always returning 0) with either Quest Pro or Varjo VR-3.
+      - Right gaze vector in world space [X, Y, Z]. Same source as LOrigin.
 20. HitPos
       - Position of closest intersection of combined gaze vector with object (with collision enabled) in the scene, in world space [X, Y, Z].
 21. HitName
       - Name of closest object (with collision enabled) in the scene intersecting with combined gaze vector.
 22. head_pose_x
-			- X component of HeadPos column (separated for fixation detection)
+			- X component of HeadPos column (separated for fixation detection).
 23. head_pose_y
-			- Y component of HeadPos column (separated for fixation detection)
+			- Y component of HeadPos column (separated for fixation detection).
 23. head_pose_z
-			- Z component of HeadPos column (separated for fixation detection)
+			- Z component of HeadPos column (separated for fixation detection).
