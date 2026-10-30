@@ -6,7 +6,8 @@
 #include "VRETEyeDataProvider.h"
 
 // Per-eye gaze (XR_FB_eye_tracking_social) and blinks (XR_FB_face_tracking2 eyelid weights) from the Meta XR plugin.
-// Meta does not expose pupil diameter, so those columns stay at 0.
+// Also corrects the combined gaze origin, which OculusXREyeTracker scales twice. Meta does not expose pupil diameter,
+// so those columns stay at 0.
 class FMetaXREyeDataProvider : public IVRETEyeDataProvider
 {
 public:

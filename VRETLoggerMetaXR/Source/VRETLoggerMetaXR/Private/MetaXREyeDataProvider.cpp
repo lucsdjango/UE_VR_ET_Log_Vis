@@ -65,6 +65,15 @@ bool FMetaXREyeDataProvider::GetEyeData(FVRETEyeData& OutData)
 			OutData.RightOrigin = EyeTransform.GetLocation();
 			OutData.RightDirection = EyeTransform.GetRotation().GetForwardVector();
 		}
+
+		// With Meta XR enabled, Get Gaze Data is served by OculusXREyeTracker, which applies WorldToMeters to the
+		// already scaled eye positions a second time (GazeOrigin ends up 100x too far from the tracking origin).
+		// Replace it with the midpoint between the eyes.
+		if (OutData.bLeftEyeValid && OutData.bRightEyeValid)
+		{
+			OutData.bGazeOriginValid = true;
+			OutData.GazeOrigin = (OutData.LeftOrigin + OutData.RightOrigin) * 0.5f;
+		}
 	}
 
 	FOculusXRFaceState FaceState;

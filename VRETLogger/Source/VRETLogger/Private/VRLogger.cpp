@@ -94,6 +94,10 @@ void AVRLogger::UpdateETData(float deltaTime, FVector headPos, FQuat headRot, FV
 		IVRETEyeDataProvider* Provider = GetEyeDataProvider();
 		if (Provider && Provider->GetEyeData(EyeData))
 		{
+			if (EyeData.bGazeOriginValid)
+			{
+				gazeOrigin = EyeData.GazeOrigin;
+			}
 			if (EyeData.bLeftEyeValid)
 			{
 				lOrigin = EyeData.LeftOrigin;

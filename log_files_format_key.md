@@ -13,7 +13,7 @@
 7. Valid
    - T if valid eyetracking data detected.
 8. GazeOrigin
-   - Tracked gaze origin position in world space [X, Y, Z], L-R combined (point between eyes).
+   - Tracked gaze origin position in world space [X, Y, Z], L-R combined (point between eyes). Quest Pro: with Meta XR enabled, the value from Get Gaze Data is wrong (Meta's eye tracker scales it twice), so the VRETLoggerMetaXR plugin replaces it with the midpoint of LOrigin and ROrigin.
 9. GazeDir
    - Tracked gaze vector in world space [X, Y, Z], L-R combined.
 10. Conf

@@ -8,6 +8,10 @@
 // Per-eye data that Unreal's generic EyeTracker interface does not provide with OpenXR. All positions/directions in world space.
 struct FVRETEyeData
 {
+	// Replaces the combined gaze origin from the EyeTracker interface, for backends where that value is wrong.
+	bool bGazeOriginValid = false;
+	FVector GazeOrigin = FVector::ZeroVector;
+
 	bool bLeftEyeValid = false;
 	FVector LeftOrigin = FVector::ZeroVector;
 	FVector LeftDirection = FVector::ZeroVector;
