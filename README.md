@@ -25,6 +25,18 @@ No blueprint changes are needed: `VRLogger` picks the data up automatically (dis
 
 Only enable this plugin in projects that target Quest, since it enables the Meta XR plugin.
 
+### Varjo: per-eye gaze, blinks, pupil size and focus distance (optional)
+
+For Varjo headsets, the optional `VRETLoggerVarjo` companion plugin reads eye data from the [Varjo Native SDK](https://developer.varjo.com/docs/native/eye-tracking), through a native Varjo session that runs alongside the engine's OpenXR session:
+
+1. Download the Varjo Native SDK (*Varjo SDK for Custom Engines*) from the Varjo developer site, and either set the environment variable `VARJO_SDK_DIR` to the extracted `varjo-sdk` folder or copy that folder to `VRETLoggerVarjo/Source/ThirdParty/VarjoSDK` (git-ignored, the SDK is not redistributed). The build expects `include/Varjo.h`, `lib/VarjoLib.lib` and, if present, `bin/VarjoLib.dll`, which is copied next to the plugin binary.
+2. Copy the `VRETLoggerVarjo` folder next to `VRETLogger` in your project's `Plugins/` directory and enable *VR Eye-Tracking Logger - Varjo*. It is a source plugin, so the project needs a C++ toolchain to build it. Without the SDK it still builds, but logs a warning and provides no data.
+3. In Varjo Base, enable *Allow eye tracking*, and calibrate eye tracking.
+
+The data is read once per engine frame (latest gaze sample) and converted to world space with the engine's HMD pose for that frame, so it lines up with HeadPos and the gaze traces. Blink sensitivity can be tuned with the console variable `vret.Varjo.BlinkOpennessThreshold` (default 0.2).
+
+Enable only one of the companion plugins in a project: `VRLogger` uses the first provider that registers.
+
 ## Recording
 
 - Add a **TSVLogger** actor to your level.
@@ -55,6 +67,7 @@ Only enable this plugin in projects that target Quest, since it enables the Meta
 | `ETVisualization` / `Fixation` | Blueprint actors | Replay visualization of recorded gaze and fixation data |
 | `FixationsVisualizationWidgetBlueprint` | Editor Utility Widget | UI for fixation computation and visualization, drives the Python scripts |
 | `VRETLoggerMetaXR` | C++ plugin (optional) | Provides per-eye gaze and blinks from the Meta XR plugin to `VRLogger` |
+| `VRETLoggerVarjo` | C++ plugin (optional) | Provides per-eye gaze, blinks, pupil size and focus distance from the Varjo Native SDK to `VRLogger` |
 | `Content/Python/` | Python | `VrEtVisualizer.py` (editor-side processing/visualization), `IDT_alg_VR_centred.py` (I-DT fixation algorithm), `InstallDependencies.py` (pip bootstrap) |
 
 ## Notes
@@ -67,14 +80,14 @@ Only enable this plugin in projects that target Quest, since it enables the Meta
 
 Unreal's OpenXR eye tracker is built on `XR_EXT_eye_gaze_interaction`, which only provides a single combined gaze pose. *Get Gaze Data* therefore never fills in the fixation point, blinks or pupil size, and *Get Stereo Gaze Data* is not implemented (always returns false). This is an engine limitation and applies to every headset.
 
-| Columns | OpenXR (any headset) | Quest Pro + `VRETLoggerMetaXR` |
-|---|---|---|
-| GazeOrigin, GazeDir | yes | yes (GazeOrigin corrected, see below) |
-| Conf | 0/1 tracking flag only | Meta's merged eye confidence |
-| LOrigin, LDir, ROrigin, RDir | no (0) | yes |
-| LBlink, RBlink | no (F) | yes (from eyelid closure) |
-| LPupil, RPupil | no (0) | no (not exposed by Meta) |
-| FixPoint | no (0) | no (0), use HitPos |
+| Columns | OpenXR (any headset) | Quest Pro + `VRETLoggerMetaXR` | Varjo + `VRETLoggerVarjo` |
+|---|---|---|---|
+| GazeOrigin, GazeDir | yes | yes (GazeOrigin corrected, see below) | yes (from OpenXR) |
+| Conf | 0/1 tracking flag only | Meta's merged eye confidence | 0/1 tracking flag only |
+| LOrigin, LDir, ROrigin, RDir | no (0) | yes | yes |
+| LBlink, RBlink | no (F) | yes (from eyelid closure) | yes (eye openness / eye not tracked) |
+| LPupil, RPupil | no (0) | no (not exposed by Meta) | yes (mm) |
+| FixPoint | no (0) | no (0), use HitPos | yes (Varjo focus distance, 0-2 m) |
 
 With Meta XR enabled, *Get Gaze Data* is served by Meta's own eye tracker, which scales the gaze origin twice. `VRETLoggerMetaXR` replaces it with the midpoint between the eyes.
 

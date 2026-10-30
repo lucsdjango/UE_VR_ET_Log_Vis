@@ -1,0 +1,31 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "VR Eye-Tracking Logger - Varjo",
+	"Description": "Adds per-eye gaze, blinks, pupil diameter and focus distance from Varjo headsets (via the Varjo Native SDK) to the VR Eye-Tracking Logger.",
+	"Category": "Virtual Reality",
+	"CreatedBy": "lucsdjango",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.7.0",
+	"CanContainContent": false,
+	"Modules": [
+		{
+			"Name": "VRETLoggerVarjo",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "VRETLogger",
+			"Enabled": true
+		}
+	]
+}

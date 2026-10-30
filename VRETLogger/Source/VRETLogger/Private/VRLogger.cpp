@@ -98,6 +98,10 @@ void AVRLogger::UpdateETData(float deltaTime, FVector headPos, FQuat headRot, FV
 			{
 				gazeOrigin = EyeData.GazeOrigin;
 			}
+			if (EyeData.bFixationPointValid)
+			{
+				fixPoint = EyeData.FixationPoint;
+			}
 			if (EyeData.bLeftEyeValid)
 			{
 				lOrigin = EyeData.LeftOrigin;

@@ -19,17 +19,17 @@
 10. Conf
       - Tracking flag rather than a real confidence: Unreal's OpenXR eye tracker sets 1 when the gaze pose is fully tracked and 0 when it is only estimated. With Meta XR enabled, it is Meta's merged eye confidence instead (close to 1).
 11. FixPoint
-      - Fixation (vergence) point. Not provided by Unreal's OpenXR eye tracker (always 0). Use HitPos instead.
+      - Fixation (focus) point in world space [X, Y, Z]. Not provided by Unreal's OpenXR eye tracker (always 0), use HitPos instead. Varjo: provided by the VRETLoggerVarjo plugin as the point at Varjo's estimated focus distance (0-2 m) along the combined gaze ray, 0 when Varjo has no valid estimate.
 12. LBlink
-      - T if left eye blink detected, otherwise F. Not provided by Unreal's OpenXR eye tracker (always F). Quest Pro: provided by the VRETLoggerMetaXR plugin (face tracking EyesClosedL weight above `vret.MetaXR.BlinkThreshold`, default 0.5).
+      - T if left eye blink detected, otherwise F. Not provided by Unreal's OpenXR eye tracker (always F). Quest Pro: provided by the VRETLoggerMetaXR plugin (face tracking EyesClosedL weight above `vret.MetaXR.BlinkThreshold`, default 0.5). Varjo: provided by the VRETLoggerVarjo plugin (eye not tracked, or eye openness below `vret.Varjo.BlinkOpennessThreshold`, default 0.2; Varjo marks openness as experimental).
 13. RBlink
       - T if right eye blink detected, otherwise F. Same source as LBlink.
 14. LPupil
-      - Left pupil diameter. Not provided by Unreal's OpenXR eye tracker (always 0). Not available on Quest Pro (Meta does not expose pupil size).
+      - Left pupil diameter. Not provided by Unreal's OpenXR eye tracker (always 0). Not available on Quest Pro (Meta does not expose pupil size). Varjo: provided by the VRETLoggerVarjo plugin, estimated diameter in mm, 0 when the pupil is not tracked.
 15. RPupil
       - Right pupil diameter. Same as LPupil.
 16. LOrigin
-      - Left eye position in world space [X, Y, Z]. Not provided by Unreal's OpenXR eye tracker (always 0). Quest Pro: provided by the VRETLoggerMetaXR plugin.
+      - Left eye position in world space [X, Y, Z]. Not provided by Unreal's OpenXR eye tracker (always 0). Quest Pro: provided by the VRETLoggerMetaXR plugin. Varjo: provided by the VRETLoggerVarjo plugin (0 while the eye is not tracked).
 17. LDir
       - Left gaze vector in world space [X, Y, Z]. Same source as LOrigin.
 18. ROrigin

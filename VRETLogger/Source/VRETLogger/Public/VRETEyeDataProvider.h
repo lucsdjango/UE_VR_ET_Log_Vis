@@ -12,6 +12,10 @@ struct FVRETEyeData
 	bool bGazeOriginValid = false;
 	FVector GazeOrigin = FVector::ZeroVector;
 
+	// Replaces the EyeTracker interface's FixationPoint (always zero with OpenXR), for backends that estimate gaze depth.
+	bool bFixationPointValid = false;
+	FVector FixationPoint = FVector::ZeroVector;
+
 	bool bLeftEyeValid = false;
 	FVector LeftOrigin = FVector::ZeroVector;
 	FVector LeftDirection = FVector::ZeroVector;
@@ -29,7 +33,7 @@ struct FVRETEyeData
 	float RightPupilDiameter = 0.0f;
 };
 
-// Implemented by headset specific companion plugins (e.g. VRETLoggerMetaXR) and registered as a modular feature.
+// Implemented by headset specific companion plugins (e.g. VRETLoggerMetaXR, VRETLoggerVarjo) and registered as a modular feature.
 // AVRLogger uses the first registered provider to fill in the per-eye columns.
 class IVRETEyeDataProvider : public IModularFeature
 {
