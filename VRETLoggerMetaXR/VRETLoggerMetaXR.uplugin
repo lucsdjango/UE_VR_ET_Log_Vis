@@ -1,0 +1,36 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "VR Eye-Tracking Logger - Meta XR",
+	"Description": "Adds per-eye gaze and blink data from Meta Quest Pro (via the Meta XR plugin) to the VR Eye-Tracking Logger.",
+	"Category": "Virtual Reality",
+	"CreatedBy": "lucsdjango",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.7.0",
+	"CanContainContent": false,
+	"Modules": [
+		{
+			"Name": "VRETLoggerMetaXR",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "VRETLogger",
+			"Enabled": true
+		},
+		{
+			"Name": "OculusXR",
+			"Enabled": true
+		}
+	]
+}

@@ -18,7 +18,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UStaticMeshComponent;
 
 // ********** Begin Class AVRLogger ****************************************************************
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execCalculateAndUpdateHits); \
 	DECLARE_FUNCTION(execUpdateHits); \
 	DECLARE_FUNCTION(execUpdateETData); \
@@ -29,7 +29,7 @@ class UStaticMeshComponent;
 struct Z_Construct_UClass_AVRLogger_Statics;
 VRETLOGGER_API UClass* Z_Construct_UClass_AVRLogger_NoRegister();
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAVRLogger(); \
 	friend struct ::Z_Construct_UClass_AVRLogger_Statics; \
@@ -40,7 +40,7 @@ public: \
 	DECLARE_SERIALIZER(AVRLogger)
 
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_ENHANCED_CONSTRUCTORS \
 	/** Deleted move- and copy-constructors, should never be used */ \
 	AVRLogger(AVRLogger&&) = delete; \
 	AVRLogger(const AVRLogger&) = delete; \
@@ -50,13 +50,13 @@ public: \
 	NO_API virtual ~AVRLogger();
 
 
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_10_PROLOG
-#define FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_GENERATED_BODY \
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_10_PROLOG
+#define FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_INCLASS_NO_PURE_DECLS \
-	FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_ENHANCED_CONSTRUCTORS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_INCLASS_NO_PURE_DECLS \
+	FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -66,6 +66,6 @@ class AVRLogger;
 // ********** End Class AVRLogger ******************************************************************
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_plust_Documents_Unreal_Projects_UE_VR_ET_Visualization_PluginExport_VRETLogger_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h
+#define CURRENT_FILE_ID FID_HostProject_Plugins_VRETLogger_Source_VRETLogger_Public_VRLogger_h
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
